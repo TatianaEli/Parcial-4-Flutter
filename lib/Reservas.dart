@@ -14,7 +14,7 @@ class _reservasState extends State<reservas> {
   final TextEditingController _vueloController = TextEditingController();
 
   final CollectionReference _reservas =
-      FirebaseFirestore.instance.collection('reservas');
+      FirebaseFirestore.instance.collection('Reservas');
 
   Future<void> _create([DocumentSnapshot? documentSnapshot]) async {
     await showModalBottomSheet(
@@ -64,8 +64,8 @@ class _reservasState extends State<reservas> {
                       if (vuelo != null && id != null) {
                         await _reservas.add({
                           "estado": estado,
-                          "idreserva": id,
-                          "idvuelo": vuelo
+                          "idReservas": id,
+                          "vuelos_idVuelos": vuelo
                         });
 
                         _estadoController.text = "";
@@ -86,8 +86,8 @@ class _reservasState extends State<reservas> {
   Future<void> _update([DocumentSnapshot? documentSnapshot]) async {
     if (documentSnapshot != null) {
       _estadoController.text = documentSnapshot['estado'].toString();
-      _idController.text = documentSnapshot['idreserva'].toString();
-      _vueloController.text = documentSnapshot['idvuelo'].toString();
+      _idController.text = documentSnapshot['idReservas'].toString();
+      _vueloController.text = documentSnapshot['vuelos_idVuelos'].toString();
     }
 
     await showModalBottomSheet(
@@ -137,8 +137,8 @@ class _reservasState extends State<reservas> {
                       if (vuelo != null && id != null) {
                         await _reservas.doc(documentSnapshot!.id).update({
                           "estado": estado,
-                          "idreserva": id,
-                          "idvuelo": vuelo
+                          "idReservas": id,
+                          "vuelos_idVuelos": vuelo
                         });
                         _estadoController.text = "";
                         _idController.text = "";
@@ -177,16 +177,16 @@ class _reservasState extends State<reservas> {
 
   barraSpotApp() {
     return AppBar(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       elevation: 10,
       title: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
-            "reservas",
+            "RESERVAS",
             style: TextStyle(
-                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 20, color: Color.fromARGB(255, 34, 211, 90), fontWeight: FontWeight.bold),
           ),
           Icon(Icons.list_outlined)
         ]),
@@ -207,8 +207,8 @@ class _reservasState extends State<reservas> {
               return Card(
                 margin: const EdgeInsets.all(10),
                 child: ListTile(
-                  title: Text(documentSnapshot['idreserva'].toString()),
-                  subtitle: Text(documentSnapshot['idvuelo'].toString()),
+                  title: Text(documentSnapshot['idReservas'].toString()),
+                  subtitle: Text(documentSnapshot['estado'].toString()),
                   trailing: SizedBox(
                     width: 100,
                     child: Row(

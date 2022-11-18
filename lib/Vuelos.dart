@@ -218,16 +218,16 @@ class _vuelosState extends State<vuelos> {
 
   barraSpotApp() {
     return AppBar(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       elevation: 10,
       title: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
-            "vuelos",
+            "VUELOS",
             style: TextStyle(
-                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 20, color: Color.fromARGB(255, 34, 211, 90), fontWeight: FontWeight.bold),
           ),
           Icon(Icons.list_outlined)
         ]),
@@ -248,7 +248,7 @@ class _vuelosState extends State<vuelos> {
               return Card(
                 margin: const EdgeInsets.all(10),
                 child: ListTile(
-                  title: Text(documentSnapshot['idVuelo'].toString()),
+                  title: Text(documentSnapshot['tipo_vuelo'].toString()),
                   subtitle: Text(documentSnapshot['disponibilidad'].toString()),
                   trailing: SizedBox(
                     width: 100,

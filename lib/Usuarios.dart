@@ -56,7 +56,7 @@ class _usuariosState extends State<usuarios> {
                   ),
                   TextField(
                     controller: _sexoController,
-                    decoration: const InputDecoration(labelText: 'sexo'),
+                    decoration: const InputDecoration(labelText: 'sexo (f / m)'),
                   ),
                   TextField(
                     controller: _usuarioController,
@@ -67,7 +67,7 @@ class _usuariosState extends State<usuarios> {
                         const TextInputType.numberWithOptions(decimal: false),
                     controller: _tipoController,
                     decoration: const InputDecoration(
-                      labelText: 'tipo',
+                      labelText: 'Tipo (Ejecutivo / Turista)',
                     ),
                   ),
                   TextField(
@@ -75,7 +75,7 @@ class _usuariosState extends State<usuarios> {
                         const TextInputType.numberWithOptions(decimal: true),
                     controller: _reservaController,
                     decoration: const InputDecoration(
-                      labelText: 'reservas_idReservas',
+                      labelText: 'Digite un numero de reserva',
                     ),
                   ),
                   const SizedBox(
@@ -131,8 +131,8 @@ class _usuariosState extends State<usuarios> {
       _fechaController.text = documentSnapshot['fecha_nacimiento'].toString();
       _cedulaController.text = documentSnapshot['cedula'].toString();
       _sexoController.text = documentSnapshot['sexo'].toString();
-      _usuarioController.text = documentSnapshot['usuario'].toString();
       _tipoController.text = documentSnapshot['tipo'].toString();
+      _usuarioController.text = documentSnapshot['usuario'].toString();
       _reservaController.text = documentSnapshot['reservas_idReservas'].toString();
     }
 
@@ -170,7 +170,7 @@ class _usuariosState extends State<usuarios> {
                   ),
                   TextField(
                     controller: _sexoController,
-                    decoration: const InputDecoration(labelText: 'Sexo'),
+                    decoration: const InputDecoration(labelText: 'Sexo ( m / f)'),
                   ),
                   TextField(
                     controller: _usuarioController,
@@ -181,7 +181,7 @@ class _usuariosState extends State<usuarios> {
                         const TextInputType.numberWithOptions(decimal: false),
                     controller: _tipoController,
                     decoration: const InputDecoration(
-                      labelText: 'Tipo',
+                      labelText: 'Tipo (Ejecutivo / Turista)',
                     ),
                   ),
                   TextField(
@@ -189,7 +189,7 @@ class _usuariosState extends State<usuarios> {
                         const TextInputType.numberWithOptions(decimal: true),
                     controller: _reservaController,
                     decoration: const InputDecoration(
-                      labelText: 'Reserva',
+                      labelText: 'Digite un numero de reserva',
                     ),
                   ),
                   const SizedBox(
@@ -215,7 +215,7 @@ class _usuariosState extends State<usuarios> {
                           "sexo": sexo,
                           "tipo": tipo,
                           "usuario": usuario,
-                          "reserva": reserva
+                          "reservas_idReservas": reserva
                         });
                         _nombreController.text = "";
                         _apellidoController.text = "";
@@ -259,7 +259,7 @@ class _usuariosState extends State<usuarios> {
 
   barraSpotApp() {
     return AppBar(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       elevation: 10,
       title: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
@@ -268,7 +268,7 @@ class _usuariosState extends State<usuarios> {
           Text(
             "USUARIOS",
             style: TextStyle(
-                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 20, color: Color.fromARGB(255, 34, 211, 90), fontWeight: FontWeight.bold),
           ),
           Icon(Icons.list_outlined)
         ]),
